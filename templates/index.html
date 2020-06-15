@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block body %}
+    <h1> Welcome to the home page! </h1>
+    <form action="{{ url_for('index') }}" method="POST">
+    <input type="text" name="search" placeholder="Search for a book">
+    <button>Search</button>
+    </form>
+{% endblock %}

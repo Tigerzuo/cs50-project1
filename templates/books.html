@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Book
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h3>Local Data</h3>
+      <br>
+      <p>Book Title: {{ book.title }} by {{book.author}}</p>
+      <p>ISBN: {{ book.isbn }}</p>
+      <p>Published Year: {{ book.year }}</p>
+      <p>Book review: {{ score }}</p>
+    </div>
+    <div class="col-4">
+      <h3>GoodReads Data</h3>
+      <br>
+      <p>GoodReads Review Count: {{ goodread_count }}</p>
+      <p>GoodReads Review Score: {{ goodread_score }}</p>
+    </div>
+  </div>
+
+  <form action="{{ url_for('books',book_id=book.id) }}" method="POST">
+    <select id="score" name="score">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <br>
+    <textarea rows="4" cols="50" name="review">
+            Enter review here...</textarea>
+    <button>Submit</button>
+  </form>
+</div>
+{% endblock %}

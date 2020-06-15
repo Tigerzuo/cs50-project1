@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results</h1>
+
+    <ul>
+        {% for book in books %}
+            <a href="{{ url_for('books', book_id=book.id) }}">
+                <li>{{ book.title }} by {{book.author}} - {{book.isbn}}</li>
+            </a>
+        {% else %}
+            <li>No Books Found</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
